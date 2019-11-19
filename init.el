@@ -28,9 +28,10 @@
 (global-set-key (kbd "C-x b") #'helm-buffers-list)
 ;(setq helm-ff-auto-update-initial-value nil)
 (menu-bar-mode -1)
-(define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
-(define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-z") #'helm-select-action)
+(with-eval-after-load 'helm
+  (define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
+  (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
+  (define-key helm-map (kbd "C-z") #'helm-select-action))
 
 (helm-mode 1)
 
