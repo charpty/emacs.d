@@ -4,6 +4,9 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+(setq make-backup-files nil)
+(global-set-key (kbd "C-c C-c M-x") #'execute-extended-command)
+
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                            ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 (custom-set-variables
