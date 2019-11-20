@@ -3,6 +3,7 @@
 		     projectile 
 		     magit
 		     ample-zen-theme
+                     spacemacs-theme
 		     irony
 		     company
 		     flycheck

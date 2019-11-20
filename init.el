@@ -41,7 +41,7 @@
 (global-set-key (kbd "C-c t") 'ff-get-other-file)
 
 ;; theme
-(load-theme 'ample-zen t)
+(load-theme 'spacemacs-dark t)
 
 ;; irony-mode
 (add-hook 'c++-mode-hook 'irony-mode)
