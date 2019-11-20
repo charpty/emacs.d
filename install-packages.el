@@ -1,17 +1,18 @@
 
 ;;; Code:
 (defvar package-list '(helm
-		     projectile
-		     magit
-		     ample-zen-theme
-                     spacemacs-theme
-		     irony
-		     company
-		     flycheck
-		     irony-eldoc
-		     smartparens
-		     clang-format
-		     modern-cpp-font-lock))
+		       projectile
+                       helm-projectile
+		       magit
+		       ample-zen-theme
+                       spacemacs-theme
+		       irony
+		       company
+		       flycheck
+		       irony-eldoc
+		       smartparens
+		       clang-format
+		       modern-cpp-font-lock))
 
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
