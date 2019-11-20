@@ -1,6 +1,7 @@
-; list the packages
-(setq package-list '(helm 
-		     projectile 
+
+;;; Code:
+(defvar package-list '(helm
+		     projectile
 		     magit
 		     ample-zen-theme
                      spacemacs-theme
@@ -16,9 +17,9 @@
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 ; activate all the packages (in particular autoloads)
-(package-initialize)
+(unless package--initialized (package-initialize t))
 
-; fetch the list of packages available 
+; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -26,3 +27,6 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
+(provide 'install-packages)
+;;; install-packages ends here

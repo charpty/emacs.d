@@ -4,20 +4,24 @@
 ;;; Code:
 (global-set-key (kbd "C-c C-c M-x") #'execute-extended-command)
 
+;; (load "~/.emacs.d/install-packages.el")
+(defvar install-packages-script "install-packages.el")
+(load-file (expand-file-name install-packages-script (file-name-directory load-file-name)))
+
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
-(package-initialize)
+(unless package--initialized (package-initialize t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes '("2a7beed4f24b15f77160118320123d699282cbf196e0089f113245d4b729ba5d" default))
+ '(custom-safe-themes
+   '("2a7beed4f24b15f77160118320123d699282cbf196e0089f113245d4b729ba5d" default))
  '(helm-completion-style 'emacs)
- '(package-selected-packages '(elisp-format modern-cpp-font-lock multiple-cursors smartparens
-                                            irony-eldoc company irony ample-zen-theme clang-format
-                                            helm-projectile projectile magit helm)))
+ '(package-selected-packages
+   '(elisp-format modern-cpp-font-lock multiple-cursors smartparens irony-eldoc company irony clang-format helm-projectile projectile magit helm)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
