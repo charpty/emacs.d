@@ -84,5 +84,8 @@
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 
+;; custom keymap
+(global-set-key (kbd "C-@") 'set-mark-command)
+
 (provide 'init)
 ;;; init ends here
