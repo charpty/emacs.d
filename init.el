@@ -29,11 +29,21 @@
  ;; If there is more than one, they won't work right.
  )
 
+(require 'smartparens-config)
+;; Always start smartparens mode in js-mode.
+(add-hook 'c++-mode-hook 'smartparens-mode)
+(add-hook 'c-mode-hook 'smartparens-mode)
+(global-set-key (kbd "M-p") #'sp-down-sexp)
+(global-set-key (kbd "M-n") #'sp-up-sexp)
+(electric-pair-mode t)
+
 (menu-bar-mode -1)
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 (global-set-key (kbd "C-x b") #'helm-buffers-list)
+(global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
+(global-set-key (kbd "C-x p g") #'helm-projectile-grep)
 (with-eval-after-load 'helm (define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
                       (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
                       (define-key helm-map (kbd "C-z") #'helm-select-action))
