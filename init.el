@@ -6,7 +6,7 @@
 
 ;; (load "~/.emacs.d/install-packages.el")
 (defvar install-packages-script "install-packages.el")
-(load-file (expand-file-name install-packages-script (file-name-directory load-file-name)))
+(ignore-errors (load-file (expand-file-name install-packages-script (file-name-directory load-file-name))))
 
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
