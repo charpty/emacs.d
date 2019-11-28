@@ -35,6 +35,7 @@
 (add-hook 'c-mode-hook 'smartparens-mode)
 (global-set-key (kbd "M-p") #'sp-down-sexp)
 (global-set-key (kbd "M-n") #'sp-up-sexp)
+(setq sp-escape-quotes-after-insert nil)
 (electric-pair-mode t)
 
 (menu-bar-mode -1)
