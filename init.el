@@ -38,6 +38,8 @@
 (setq sp-escape-quotes-after-insert nil)
 (electric-pair-mode t)
 
+(setq grep-command "grep -nH --exclude-dir=test/ --exclude-dir=build/ --exclude-dir=testlib/ -R -e ")
+
 (menu-bar-mode -1)
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
@@ -45,6 +47,10 @@
 (global-set-key (kbd "C-x b") #'helm-buffers-list)
 (global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
 (global-set-key (kbd "C-x p g") #'helm-projectile-grep)
+; set helm always show buffer at the bottom
+(setq helm-always-two-windows nil)
+(setq helm-display-buffer-default-height 23)
+(setq helm-default-display-buffer-functions '(display-buffer-in-side-window))
 (with-eval-after-load 'helm (define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
                       (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
                       (define-key helm-map (kbd "C-z") #'helm-select-action))
