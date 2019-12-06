@@ -1,3 +1,8 @@
 elpa
 eshell
 helm
+auto-save-list
+transient
+bookmarks
+ido.*
+smex-*

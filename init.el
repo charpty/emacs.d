@@ -4,7 +4,6 @@
 ;;; Code:
 (global-set-key (kbd "C-c C-c M-x") #'execute-extended-command)
 
-;; (load "~/.emacs.d/install-packages.el")
 (defvar install-packages-script "install-packages.el")
 (ignore-errors (load-file (expand-file-name install-packages-script (file-name-directory load-file-name))))
 
@@ -47,6 +46,8 @@
 (global-set-key (kbd "C-x b") #'helm-buffers-list)
 (global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
 (global-set-key (kbd "C-x p g") #'helm-projectile-grep)
+(setq helm-buffer-max-length 50)
+(setq helm-buffers-fuzzy-matching t)
 ; set helm always show buffer at the bottom
 (setq helm-always-two-windows nil)
 (setq helm-display-buffer-default-height 23)
