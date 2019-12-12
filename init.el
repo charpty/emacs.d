@@ -46,6 +46,7 @@
 (global-set-key (kbd "C-x b") #'helm-buffers-list)
 (global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
 (global-set-key (kbd "C-x p g") #'helm-projectile-grep)
+(global-set-key (kbd "C-x C-o") #'helm-occur)
 (setq helm-buffer-max-length 50)
 (setq helm-buffers-fuzzy-matching t)
 ; set helm always show buffer at the bottom
@@ -63,8 +64,10 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c t") 'ff-get-other-file)
 
-;; theme
-(load-theme 'spacemacs-dark t)
+(defvar my-theme-script "my-theme.el")
+(cond ((file-exists-p my-theme-script)
+       (load-file (expand-file-name my-theme-script (file-name-directory load-file-name))))
+       (t (load-theme 'spacemacs-dark t)))
 
 ;; irony-mode
 (add-hook 'c++-mode-hook 'irony-mode)
