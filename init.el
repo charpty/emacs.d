@@ -51,6 +51,7 @@
 ; set helm always show buffer at the bottom
 (setq helm-always-two-windows nil)
 (setq helm-display-buffer-default-height 23)
+(setq helm-ff-DEL-up-one-level-maybe t)
 (setq helm-default-display-buffer-functions '(display-buffer-in-side-window))
 (with-eval-after-load 'helm (define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
                       (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
