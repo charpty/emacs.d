@@ -5,7 +5,8 @@
 (global-set-key (kbd "C-c C-c M-x") #'execute-extended-command)
 
 (defvar install-packages-script "install-packages.el")
-(ignore-errors (load-file (expand-file-name install-packages-script (file-name-directory load-file-name))))
+(defvar current-conf-dir (file-name-directory load-file-name))
+(ignore-errors (load-file (expand-file-name install-packages-script current-conf-dir)))
 
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
@@ -65,8 +66,8 @@
 (global-set-key (kbd "C-c t") 'ff-get-other-file)
 
 (defvar my-theme-script "my-theme.el")
-(cond ((file-exists-p my-theme-script)
-       (load-file (expand-file-name my-theme-script (file-name-directory load-file-name))))
+(cond ((file-exists-p (expand-file-name my-theme-script current-conf-dir))
+       (load-file (expand-file-name my-theme-script current-conf-dir)))
        (t (load-theme 'spacemacs-dark t)))
 
 ;; irony-mode
