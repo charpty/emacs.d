@@ -33,9 +33,11 @@
 ;; Always start smartparens mode in js-mode.
 (add-hook 'c++-mode-hook 'smartparens-mode)
 (add-hook 'c-mode-hook 'smartparens-mode)
-(global-set-key (kbd "M-p") #'sp-down-sexp)
-(global-set-key (kbd "M-n") #'sp-up-sexp)
+(global-set-key (kbd "M-p") #'sp-backward-sexp)
+(global-set-key (kbd "M-n") #'sp-forward-sexp)
 (setq sp-escape-quotes-after-insert nil)
+(smartparens-global-mode 1)
+(show-smartparens-global-mode 1)
 (electric-pair-mode t)
 
 (setq grep-command "grep -nH --exclude-dir=test/ --exclude-dir=build/ --exclude-dir=testlib/ -R -e ")
