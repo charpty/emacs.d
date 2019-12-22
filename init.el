@@ -116,5 +116,14 @@
 ;; custom keymap
 (global-set-key (kbd "C-@") 'set-mark-command)
 
+;; custom functions
+(defun re-compile()
+  (interactive)
+  (save-some-buffers t)
+  (switch-to-buffer-other-window "*compilation*")
+  (compile compile-command))
+
+(global-set-key [f6] 're-compile)
+
 (provide 'init)
 ;;; init ends here
