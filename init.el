@@ -47,8 +47,6 @@
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 (global-set-key (kbd "C-x b") #'helm-buffers-list)
-(global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
-(global-set-key (kbd "C-x p g") #'helm-projectile-grep)
 (global-set-key (kbd "C-x C-o") #'helm-occur)
 (setq helm-buffer-max-length 50)
 (setq helm-buffers-fuzzy-matching t)
@@ -62,6 +60,12 @@
                       (define-key helm-map (kbd "C-z") #'helm-select-action))
 
 (helm-mode 1)
+
+(setq projectile-globally-ignored-files '("*.tgz" "*.tar" "*dblite" "*.pdf"))
+(setq projectile-globally-ignored-directories '("testdata" "logs"))
+
+(global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
+(global-set-key (kbd "C-x p g") #'helm-projectile-grep)
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
