@@ -35,6 +35,7 @@
 (add-hook 'c-mode-hook 'smartparens-mode)
 (global-set-key (kbd "M-p") #'sp-backward-sexp)
 (global-set-key (kbd "M-n") #'sp-forward-sexp)
+(global-set-key (kbd "C-c w") #'sp-copy-sexp)
 (setq sp-escape-quotes-after-insert nil)
 (smartparens-global-mode 1)
 (show-smartparens-global-mode 1)
