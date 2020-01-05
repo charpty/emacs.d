@@ -67,6 +67,7 @@
 
 (global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
 (global-set-key (kbd "C-x p g") #'helm-projectile-grep)
+(global-set-key (kbd "C-x TAB") #'helm-imenu)
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
