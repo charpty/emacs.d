@@ -4,9 +4,9 @@
 ;;; Code:
 (global-set-key (kbd "C-c C-c M-x") #'execute-extended-command)
 
-(defvar install-packages-script "install-packages.el")
+(defvar install-packages-el "install-packages.el")
 (defvar current-conf-dir (file-name-directory load-file-name))
-(ignore-errors (load-file (expand-file-name install-packages-script current-conf-dir)))
+(ignore-errors (load-file (expand-file-name install-packages-el current-conf-dir)))
 
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
@@ -67,15 +67,18 @@
 
 (global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
 (global-set-key (kbd "C-x p g") #'helm-projectile-grep)
+
 (global-set-key (kbd "C-x TAB") #'helm-imenu)
+(defvar cc-imenu-el "cc-imenu.el")
+(load-file (expand-file-name cc-imenu-el current-conf-dir))
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c t") 'ff-get-other-file)
 
-(defvar my-theme-script "my-theme.el")
-(cond ((file-exists-p (expand-file-name my-theme-script current-conf-dir))
-       (load-file (expand-file-name my-theme-script current-conf-dir)))
+(defvar my-theme-el "my-theme.el")
+(cond ((file-exists-p (expand-file-name my-theme-el current-conf-dir))
+       (load-file (expand-file-name my-theme-el current-conf-dir)))
        (t (load-theme 'ample-zen t)))
 
 ;; company mode
