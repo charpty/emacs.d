@@ -5,11 +5,8 @@
                        helm-projectile
 		       magit
 		       ample-zen-theme
-                       spacemacs-theme
-		       irony
 		       company
 		       flycheck
-		       irony-eldoc
 		       smartparens
 		       clang-format
 		       modern-cpp-font-lock))

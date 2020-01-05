@@ -75,21 +75,11 @@
 (defvar my-theme-script "my-theme.el")
 (cond ((file-exists-p (expand-file-name my-theme-script current-conf-dir))
        (load-file (expand-file-name my-theme-script current-conf-dir)))
-       (t (load-theme 'spacemacs-dark t)))
-
-;; irony-mode
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-
-(add-hook 'objc-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+       (t (load-theme 'ample-zen t)))
 
 ;; company mode
 (add-hook 'c++-mode-hook 'company-mode)
 (add-hook 'c-mode-hook 'company-mode)
-
-;; eldoc-mode
-(add-hook 'irony-mode-hook 'irony-eldoc)
 
 ;; flycheck
 (require 'flycheck)
@@ -98,6 +88,7 @@
 ; Enable C++11 support for gcc
 (add-hook 'c++-mode-hook (lambda ()
                            (setq flycheck-gcc-language-standard "c++11")))
+(setq flycheck-highlighting-mode 'lines)
 (global-flycheck-mode)
 
 ;; clang-format
