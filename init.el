@@ -35,7 +35,6 @@
 (add-hook 'c-mode-hook 'smartparens-mode)
 (global-set-key (kbd "M-p") #'sp-backward-sexp)
 (global-set-key (kbd "M-n") #'sp-forward-sexp)
-(global-set-key (kbd "C-c w") #'sp-copy-sexp)
 (setq sp-escape-quotes-after-insert nil)
 (smartparens-global-mode 1)
 (show-smartparens-global-mode 1)
@@ -131,7 +130,15 @@
   (interactive)
   (let ((filename (string-remove-prefix (projectile-project-root) buffer-file-name)))
     (when filename (kill-new filename)
-          (message "Copied buffer file name '%s' to the clipboard." filename))))
+          (message "Copied buffer file name '%s' to the clipboard" filename))))
+
+(defun copy-current-word()
+  (interactive)
+  (sp-copy-sexp)
+  (message "Copied word '%s'" (current-kill 0)))
+
+(global-set-key (kbd "C-c w") #'copy-current-word)
+
 
 (provide 'init)
 ;;; init ends here
