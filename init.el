@@ -12,22 +12,7 @@
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 (unless package--initialized (package-initialize t))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("2a7beed4f24b15f77160118320123d699282cbf196e0089f113245d4b729ba5d" default))
- '(helm-completion-style 'emacs)
- '(package-selected-packages
-   '(elisp-format modern-cpp-font-lock multiple-cursors smartparens irony-eldoc company irony clang-format helm-projectile projectile magit helm)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq custom-file (concat user-emacs-directory "/custom.el"))
 
 (require 'smartparens-config)
 ;; Always start smartparens mode in js-mode.
@@ -116,6 +101,9 @@
 
 ;; custom keymap
 (global-set-key (kbd "C-@") 'set-mark-command)
+(global-unset-key (kbd "C-x C-x"))
+(global-unset-key (kbd "C-x C-p"))
+(global-unset-key (kbd "C-x C-n"))
 
 ;; custom functions
 (defun re-compile()
@@ -137,8 +125,8 @@
   (sp-copy-sexp)
   (message "Copied word '%s'" (current-kill 0)))
 
+(global-set-key (kbd "C-c C-w") #'copy-current-word)
 (global-set-key (kbd "C-c w") #'copy-current-word)
-
 
 (provide 'init)
 ;;; init ends here
