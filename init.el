@@ -43,6 +43,8 @@
 
 (setq grep-command "grep -nH --exclude-dir=test/ --exclude-dir=build/ --exclude-dir=testlib/ -R -e ")
 
+(require 'helm)
+(require 'projectile)
 (menu-bar-mode -1)
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
@@ -124,6 +126,12 @@
   (compile compile-command))
 
 (global-set-key [f6] 're-compile)
+
+(defun copy-current-file-name-relative ()
+  (interactive)
+  (let ((filename (string-remove-prefix (projectile-project-root) buffer-file-name)))
+    (when filename (kill-new filename)
+          (message "Copied buffer file name '%s' to the clipboard." filename))))
 
 (provide 'init)
 ;;; init ends here
