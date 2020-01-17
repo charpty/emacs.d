@@ -68,8 +68,8 @@
        (t (load-theme 'ample-zen t)))
 
 ;; company mode
-(add-hook 'c++-mode-hook 'company-mode)
-(add-hook 'c-mode-hook 'company-mode)
+; (add-hook 'c++-mode-hook 'company-mode)
+; (add-hook 'c-mode-hook 'company-mode)
 
 ;; flycheck
 (require 'flycheck)
@@ -106,27 +106,27 @@
 (global-unset-key (kbd "C-x C-n"))
 
 ;; custom functions
-(defun re-compile()
+(defun cn-re-compile()
   (interactive)
   (save-some-buffers t)
   (switch-to-buffer-other-window "*compilation*")
   (compile compile-command))
 
-(global-set-key [f6] 're-compile)
+(global-set-key [f6] 'cn-re-compile)
 
-(defun copy-current-file-name-relative ()
+(defun cn-copy-current-file-name-relative ()
   (interactive)
   (let ((filename (string-remove-prefix (projectile-project-root) buffer-file-name)))
     (when filename (kill-new filename)
           (message "Copied buffer file name '%s' to the clipboard" filename))))
 
-(defun copy-current-word()
+(defun cn-copy-current-word()
   (interactive)
   (sp-copy-sexp)
   (message "Copied word '%s'" (current-kill 0)))
 
-(global-set-key (kbd "C-c C-w") #'copy-current-word)
-(global-set-key (kbd "C-c w") #'copy-current-word)
+(global-set-key (kbd "C-c C-w") #'cn-copy-current-word)
+(global-set-key (kbd "C-c w") #'cn-copy-current-word)
 
 (provide 'init)
 ;;; init ends here
