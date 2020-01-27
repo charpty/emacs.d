@@ -117,7 +117,7 @@
   (interactive)
   (let ((filename (string-remove-prefix (projectile-project-root) buffer-file-name)))
     (when filename (kill-new filename)
-          (message "Copied buffer file name '%s' to the clipboard" filename))))
+    (message "Copied buffer file name '%s' to the clipboard" filename))))
 
 (defun cn-copy-current-word()
   (interactive)
@@ -129,18 +129,18 @@
 
 (require 'find-file)
 (defun cn-ff-not-found-hook ()
-  (interactive)
-  (defvar cn-ff-not-found-other-file t))
+  (setq cn-ff-not-found-other-file t))
 
 (add-hook 'ff-not-found-hooks 'cn-ff-not-found-hook)
 
 (defun cn-ff-get-other-file ()
   (interactive)
   (ff-get-other-file)
-  (when (boundp 'cn-ff-not-found-other-file)
-    (progn (message "can't find other file in current directory, so we use projectile...")
-           (helm-projectile-find-other-file)
-           (setq cn-ff-not-found-other-file nil))))
+  (when (and (boundp 'cn-ff-not-found-other-file) cn-ff-not-found-other-file)
+        (progn
+        (message "can't find other file in current directory, so we use projectile...")
+        (helm-projectile-find-other-file)
+        (setq cn-ff-not-found-other-file nil))))
 
 (setq ff-always-try-to-create nil)
 (global-set-key (kbd "C-c t") 'cn-ff-get-other-file)
