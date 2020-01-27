@@ -60,7 +60,6 @@
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-c t") 'ff-get-other-file)
 
 (defvar my-theme-el "my-theme.el")
 (cond ((file-exists-p (expand-file-name my-theme-el current-conf-dir))
@@ -127,6 +126,24 @@
 
 (global-set-key (kbd "C-c C-w") #'cn-copy-current-word)
 (global-set-key (kbd "C-c w") #'cn-copy-current-word)
+
+(require 'find-file)
+(defun cn-ff-not-found-hook ()
+  (interactive)
+  (defvar cn-ff-not-found-other-file t))
+
+(add-hook 'ff-not-found-hooks 'cn-ff-not-found-hook)
+
+(defun cn-ff-get-other-file ()
+  (interactive)
+  (ff-get-other-file)
+  (when (boundp 'cn-ff-not-found-other-file)
+    (progn (message "can't find other file in current directory, so we use projectile...")
+           (helm-projectile-find-other-file)
+           (setq cn-ff-not-found-other-file nil))))
+
+(setq ff-always-try-to-create nil)
+(global-set-key (kbd "C-c t") 'cn-ff-get-other-file)
 
 (provide 'init)
 ;;; init ends here
