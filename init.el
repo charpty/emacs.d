@@ -23,7 +23,7 @@
 (setq sp-escape-quotes-after-insert nil)
 (smartparens-global-mode 1)
 (show-smartparens-global-mode 1)
-(electric-pair-mode t)
+; (electric-pair-mode t)
 
 (setq grep-command "grep -nH --exclude-dir=test/ --exclude-dir=build/ --exclude-dir=testlib/ -R -e ")
 
