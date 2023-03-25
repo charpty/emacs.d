@@ -51,8 +51,8 @@
 (setq projectile-globally-ignored-files '("*.tgz" "*.tar" "*dblite" "*.pdf"))
 (setq projectile-globally-ignored-directories '("testdata" "logs"))
 
-(global-set-key (kbd "C-x p f") #'helm-projectile-find-file-dwim)
-(global-set-key (kbd "C-x p g") #'helm-projectile-grep)
+(global-set-key (kbd "C-x p f") #'projectile-find-file)
+(global-set-key (kbd "C-x p g") #'projectile-grep)
 
 (global-set-key (kbd "C-x TAB") #'helm-imenu)
 (defvar cc-imenu-el "cc-imenu.el")
