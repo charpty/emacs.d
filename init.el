@@ -69,6 +69,7 @@
 ;; company mode
 ; (add-hook 'c++-mode-hook 'company-mode)
 ; (add-hook 'c-mode-hook 'company-mode)
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 
 ;; flycheck
 (require 'flycheck)
@@ -78,7 +79,7 @@
 (add-hook 'c++-mode-hook (lambda ()
                            (setq flycheck-gcc-language-standard "c++11")))
 (setq flycheck-highlighting-mode 'lines)
-(global-flycheck-mode)
+; (global-flycheck-mode)
 
 ;; clang-format
 (require 'clang-format)
