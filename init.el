@@ -70,6 +70,7 @@
 ; (add-hook 'c++-mode-hook 'company-mode)
 ; (add-hook 'c-mode-hook 'company-mode)
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cuh\\'" . c++-mode))
 
 ;; flycheck
 (require 'flycheck)
